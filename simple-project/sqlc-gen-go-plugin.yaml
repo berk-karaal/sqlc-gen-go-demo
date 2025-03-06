@@ -3,7 +3,7 @@ plugins:
   - name: golang
     wasm:
       url: https://github.com/berk-karaal/sqlc-gen-go/releases/download/v1.5.1/berk-karaal-sqlc-gen-go_1.5.1.wasm
-      sha256: 415de96b2cf3bbda5a5ebc8fbf2a782f6d9916a35554b3e61183c90a6c504165
+      sha256: 95bc2009c94bdac0f8c5af8207bd1cf43723f8e33fb17e06fce1d96b83da242e
 sql:
   - engine: "postgresql"
     queries: "queries.sql"
@@ -22,4 +22,4 @@ sql:
           output_query_files_directory: "sqlcrepo/"
           output_models_file_name: "models/models.go"
           output_models_package: "models"
-          output_models_package_import_path: "github.com/berk-karaal/sqlc-gen-go-demo/simple-project/models"
+          models_package_import_path: "github.com/berk-karaal/sqlc-gen-go-demo/simple-project/models"

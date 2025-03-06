@@ -1,0 +1,19 @@
+version: "2"
+sql:
+  - engine: "postgresql"
+    queries: "queries.sql"
+    schema: "db/migrations"
+    gen:
+      go:
+        out: "."
+        sql_package: "pgx/v5"
+        emit_all_enum_values: true
+        package: "sqlcrepo"
+        output_batch_file_name: "sqlcrepo/batch.go"
+        output_db_file_name: "sqlcrepo/db.go"
+        output_querier_file_name: "sqlcrepo/querier.go"
+        output_copyfrom_file_name: "sqlcrepo/copyfrom.go"
+        output_query_files_directory: "sqlcrepo/"
+        output_models_file_name: "models/models.go"
+        output_models_package: "models"
+        models_package_import_path: "github.com/berk-karaal/sqlc-gen-go-demo/simple-project/models"
