@@ -29,6 +29,8 @@ type Querier interface {
 	GetOrderStatusByID(ctx context.Context, id int32) (entities.OrderStatus, error)
 	// 7. No model file depedency example
 	GetOrderTotalByID(ctx context.Context, id int32) (int32, error)
+	// 12. Struct embedding
+	GetOrderWithUserByOrderId(ctx context.Context, id int32) (GetOrderWithUserByOrderIdRow, error)
 	// 2. Returning single model struct example
 	GetUserByID(ctx context.Context, id int32) (entities.User, error)
 	// 1. Returning list of model struct example

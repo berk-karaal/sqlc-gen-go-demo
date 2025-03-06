@@ -41,3 +41,10 @@ SELECT status FROM orders WHERE id = $1;
 -- 11. Batch query return enum inside return struct example
 -- name: BatchRetrieveOrderStatusAndTotal :batchone
 SELECT status, total FROM orders WHERE id = $1;
+
+-- 12. Struct embedding
+-- name: GetOrderWithUserByOrderId :one
+SELECT sqlc.embed(orders), sqlc.embed(users)
+FROM orders
+LEFT OUTER JOIN users ON orders.user_id = users.id
+WHERE orders.id = $1;
