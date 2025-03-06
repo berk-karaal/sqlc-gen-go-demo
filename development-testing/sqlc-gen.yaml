@@ -1,0 +1,22 @@
+version: "2"
+sql:
+  - engine: "postgresql"
+    queries:
+      - "internal/db/queries/"
+      # - "internal/db/queries/query-4.sql" # To test generating an individual query
+    schema: "db/schema.sql"
+    gen:
+      go:
+        out: "internal/"
+        sql_package: "pgx/v5"
+        emit_all_enum_values: true
+        emit_interface: true
+        package: "sqlcrepo"
+        output_batch_file_name: "db/sqlcrepo/batch.go"
+        output_db_file_name: "db/sqlcrepo/db.go"
+        output_querier_file_name: "db/sqlcrepo/querier.go"
+        output_copyfrom_file_name: "db/sqlcrepo/copyfrom.go"
+        output_query_files_directory: "db/sqlcrepo/"
+        output_models_file_name: "business/entities/database.go"
+        output_models_package: "entities"
+        models_package_import_path: "github.com/berk-karaal/sqlc-gen-go-demo/development-testing/internal/business/entities"
